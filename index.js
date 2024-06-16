@@ -39,6 +39,7 @@ document.getElementById('speedForm').addEventListener('submit', function (event)
     const days = parseInt(document.getElementById('daysForSpeed').value, 10);
     const resultSpeedGbps = calculateSpeed(data, days);
     const formattedSpeed = formatSpeed(resultSpeedGbps);
+    
     document.getElementById('result').textContent = `برای دانلود ${data} ترابایت داده در ${days} روز، شما نیاز به پهنای باند ${formattedSpeed} دارید.`;
 });
 

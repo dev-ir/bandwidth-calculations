@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محاسبه حجم دانلود</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="
-https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css
-" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css" rel="stylesheet">
     <style>
         body {
+            direction: rtl;
+            text-align: right;
             font-family: Yekan;
             display: flex;
             flex-direction: column;
@@ -32,10 +33,10 @@ https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css
 
 <body>
     <div class="container mt-5 content">
-        <h1 class="text-center">محاسبه حجم دانلود</h1>
+        <h1 class="text-center">محاسبه حجم دانلود / پهنای باند</h1>
         <div id="form-container">
             <form id="downloadForm" class="mt-4">
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="speed">سرعت:</label>
                     <select id="speed" name="speed" class="form-control" required>
                         <option value="0.05">50 مگابیت بر ثانیه</option>
@@ -47,32 +48,40 @@ https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css
                         <option value="5">5 گیگابیت بر ثانیه</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="days">تعداد روزها:</label>
                     <input type="number" id="days" name="days" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">محاسبه</button>
+                <div class="container mt-3  p-0">
+                    <button type="submit" class="btn btn-primary btn-block">محاسبه</button>
+                    <button id="switchToSpeedForm" class="btn btn-secondary btn-block">تبدیل به محاسبه پهنای باند</button>    
+                </div>
             </form>
-            <button id="switchToSpeedForm" class="btn btn-secondary btn-block mt-3">تبدیل به محاسبه پهنای باند</button>
         </div>
 
         <div id="speedFormContainer" class="d-none mt-4">
             <form id="speedForm">
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="data">حجم داده (ترابایت):</label>
                     <input type="number" id="data" name="data" class="form-control" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label for="daysForSpeed">تعداد روزها:</label>
                     <input type="number" id="daysForSpeed" name="daysForSpeed" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">محاسبه</button>
+                <div class="container p-0 mt-3">
+                    <button type="submit" class="btn btn-primary btn-block">محاسبه</button>
+                    <button id="switchToDownloadForm" class="btn btn-secondary btn-block">تبدیل به محاسبه حجم </button>
+                </div>
             </form>
-            <button id="switchToDownloadForm" class="btn btn-secondary btn-block mt-3">تبدیل به محاسبه حجم
-                دانلود</button>
         </div>
 
-        <p id="result" class="mt-4 text-center"></p>
+        <div class="container dw-alert mt-4 p-0 ">
+            <div class="alert alert-warning text-center" role="alert">
+                <span id="result" class="mt-4 "> لطفا محاسبه شروع کنید </span>
+            </div>
+        </div>
+
     </div>
     <footer>
         طراحی و توسعه: <a href="https://github.com/dev-ir" target="_blank" rel="noopener noreferrer">رهگذر</a>
